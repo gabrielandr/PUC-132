@@ -13,7 +13,7 @@
 			</div>
 		</div>
 		<nav>
-		<ul class="sf-menu" id="nav">
+		<ul class="sf-menu" id="nav" style="display: -webkit-inline-box;">
 			<li <%= "home".equalsIgnoreCase(menuSelecionado) ? "class='selected'" : ""%>><a href="./">Home</a></li>
 			<li <%= "criar".equalsIgnoreCase(menuSelecionado) ? "class='selected'" : ""%>><a href="criarTarefa.jsp">Criar tarefa</a></li>
 			<li>&nbsp;</li>
