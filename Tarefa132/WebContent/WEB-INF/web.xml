@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>Tarefa</display-name>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.html</welcome-file>
+   </welcome-file-list>
+  <servlet>
+    <servlet-name>ListarTarefas</servlet-name>
+    <servlet-class>rtp.servlets.ListarTarefasServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CriarTarefa</servlet-name>
+    <servlet-class>rtp.servlets.CriarTarefaServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>SessionInfo</servlet-name>
+    <servlet-class>rtp.servlets.SessionInfoServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>ResolverTarefa</servlet-name>
+    <servlet-class>rtp.servlets.ResolverTarefaServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>ListarTarefas</servlet-name>
+    <url-pattern>/ListarTarefas.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>CriarTarefa</servlet-name>
+    <url-pattern>/CriarTarefa.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>ResolverTarefa</servlet-name>
+    <url-pattern>/ResolverTarefa.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>ResolverTarefa</servlet-name>
+    <url-pattern>/resolverTarefa</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>SessionInfo</servlet-name>
+    <url-pattern>/SessionInfo.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>SessionInfo</servlet-name>
+    <url-pattern>/sessionInfo</url-pattern>
+  </servlet-mapping>
+  
+  
+</web-app>
