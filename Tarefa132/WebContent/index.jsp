@@ -43,9 +43,12 @@
 				<table id="tabelaTarefas" class="display">
 					<thead>
 						<tr id="trLabels">
-							<td id="tdLabels">ID</td>
+						
+							<td id="tdLabedsals">ID</td>
 							<td id="tdLabels">Titulo</td>
 							<td id="tdLabels">Prazo de execução</td>
+							<td id="tdLabels">Prazo de execução</td>
+							
 							<td id="tdLabels">Detalhes</td>
 							<td id="tdLabels">Responsável</td>
 							<td id="tdLabels">Urgente</td>
