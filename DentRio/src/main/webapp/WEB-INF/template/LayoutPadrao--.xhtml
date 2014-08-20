@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title><ui:insert name="titulo">DentRio</ui:insert></title>
+	<!-- 	<link href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow|Yanone+Kaffeesatz:400,300,700" rel="stylesheet" type="text/css"> -->
+	<link type="text/css" rel="stylesheet"
+		href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow|Yanone+Kaffeesatz:400,300,700" />
+	<h:outputStylesheet library="css" name="index.css" />
+	<h:outputStylesheet library="css" name="style.css" />
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+	<h:outputStylesheet library="css" name="bootstrap-overrides.css" />
+	<h:outputStylesheet library="css" name="bootstrap-responsive.min.css" />
+	<h:outputScript library="js" name="jquery.js" />
+<!-- 	<h:outputScript library="js" name="jquery-2.1.1.min.js" /> -->
+	<h:outputScript library="js" name="wowslider.js" />
+	<h:outputScript library="js" name="script.js" />
+
+</h:head>
+
+<h:body>
+
+	<!-- 	<p:ajaxStatus styleClass="ajax-status"> -->
+	<!-- 		<f:facet name="start"> -->
+	<!-- 			<h:graphicImage library="imagens" name="carregando.gif" /> -->
+	<!-- 		</f:facet> -->
+	<!-- 		<f:facet name="complete"> -->
+	<!-- 			<h:outputText value="" /> -->
+	<!-- 		</f:facet> -->
+	<!-- 	</p:ajaxStatus> -->
+
+	<!-- 	<header> -->
+	<!-- 		<div style="clear: both"></div> -->
+	<!-- 	</header> -->
+
+
+	<header>
+		<div class="container">
+			<div class="row-fluid">
+				<!-- logo -->
+				<div class="span6 logo">
+					<a href="Home.xhtml"> <h:graphicImage library="imagens"
+							name="logo.png" />
+					</a>
+				</div>
+				<!-- End Logo -->
+
+				<!-- Social menu -->
+				<div class="span6" id="social">
+					<ul class="social">
+						<li class="twitter"><a target="_top" href="www.twiter.com"></a></li>
+						<li class="facebook"><a target="_top" href="www.facebook.com"></a></li>
+					</ul>
+				</div>
+				<!-- End Social Menu -->
+
+			</div>
+			<!--/.row-fluid -->
+		</div>
+		<!--/.container -->
+	</header>
+
+	<!-- Section top -->
+	<section id="top">
+		<div class="container">
+
+			<!-- 			MENU NAV -->
+			<!-- 			<ui:include src="/WEB-INF/template/menuLateral.xhtml" /> -->
+			<ui:include src="/WEB-INF/template/menuTopo.xhtml" />
+
+
+			<div id="wowslider-container1">
+				<div class="ws_images">
+					<ul>
+						<li><h:graphicImage library="imagens" name="1.png" /></li>
+					</ul>
+				</div>
+				<div class="ws_bullets">
+					<div>
+						<h:graphicImage library="imagens" name="1.png" />
+						<h:graphicImage library="imagens" name="1.png" />
+						<h:graphicImage library="imagens" name="1.png" />
+						<h:graphicImage library="imagens" name="1.png" />
+					</div>
+				</div>
+				<span class="wsl"><a href="http://wowslider.com">jquery
+						slider</a> by WOWSlider.com v5.6</span>
+				<div class="ws_shadow"></div>
+			</div>
+
+			<!--/.navbar -->
+
+			<div id="conteudo">
+
+				<!-- Aqui abaixo vai o conteudo de cada pagina criada xhtml -->
+				<ui:insert name="corpo" />
+				<!-- ##### -->
+
+			</div>
+
+		</div>
+	</section>
+	<!-- 	<p:separator style="margin-top: 20px" /> -->
+
+	<footer>
+		DentRio - - <a href="http://www.puc-rio.br/index.html" target="_blank">PUC
+			132</a>
+	</footer>
+</h:body>
+
+</html>

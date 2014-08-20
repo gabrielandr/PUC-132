@@ -1,0 +1,94 @@
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<f:metadata>
+		<f:viewAction action="#{dentistaBean.prepararPedidos}" />
+	</f:metadata>
+
+	<ui:define name="titulo">Lista de Dentistas</ui:define>
+
+	<ui:define name="corpo">
+		<h:body>
+		<h1>Lista de Dentistas</h1>
+		<!-- 		<h:outputText value="Lista de Dentistas" style="font-weight:bold" /> -->
+
+			<p:dataTable id="dentistasTable"
+				value="#{dentistaBean.listaDentistas}" var="dentista"
+				style="margin-top: 20px">
+				<p:column headerText="Dentista">
+					<h:outputText value="#{dentista.nomeDentista}" />
+				</p:column>
+				<p:column headerText="Data">
+					<h:outputText value="#{dentista.data}">
+						<f:convertDateTime pattern="dd/MM/yyyy" />
+					</h:outputText>
+				</p:column>
+
+
+				<p:column>
+					<!-- 					<span class="ui-separator">  -->
+					<!-- 					<span class="ui-icon ui-icon-grip-dotted-vertical" /></span> -->
+
+					<p:commandButton icon="ui-icon-trash" title="Excluir"
+						process="@this" update="dentistasTable"
+						action="#{dentistaBean.deletarDentista(dentista.id)}">
+	    			</p:commandButton>
+
+
+					<p:ajaxStatus onstart="PF('statusDialog').show()"
+						onsuccess="PF('statusDialog').hide()" 
+						/>
+
+					<p:dialog widgetVar="statusDialog" modal="true" draggable="false"
+						closable="false" resizable="false" showHeader="false">
+						<h:graphicImage library="imagens" name="ajax-loader2.gif" />
+					</p:dialog>
+
+				</p:column>
+			</p:dataTable>
+			<p:confirmDialog id="confirmacaoExclusaoDialog"
+				widgetVar="confirmacaoExclusao"
+				message="Tem certeza que deseja excluir o dentista ?"
+				header="Exclusão de dentista" severity="alert">
+				<p:button value="Não"
+					onclick="confirmacaoExclusao.hide(); return false;" />
+				<p:commandButton value="Sim" update=":dentistasTable"
+					onclick="confirmacaoExclusao.hide()"
+					action="#{dentistaBean.deletarDentista}" />
+			</p:confirmDialog>
+			<h:form>
+			<p:growl id="growl" showDetail="true" />
+				<table>
+
+					<tr>
+						<td><h:outputLabel for="nomeDentista" value="Name : " /></td>
+						<td><p:inputText id="nomeDentista"
+								value="#{dentistaBean.dentista.nomeDentista}">
+								<f:validateLength minimum="5" />
+								<p:ajax event="blur" update="nomeDentista" />
+							</p:inputText> <p:message id="nomeDentistaMsg" for="nomeDentista"
+								display="icon" /></td>
+					</tr>
+					<tr>
+						<td><h:outputLabel for="multi" value="Multiple:" /></td>
+						<td><p:calendar id="multi"
+								value="#{dentistaBean.dentista.data}" pages="3" /></td>
+					</tr>
+					<tr>
+						<td><p:commandButton id="addUser" value="Salvar" icon="ui-icon-disk"
+								actionListener="#{dentistaBean.adicionarDentista}" update="growl" ajax="false" /></td>
+						<td>
+						<p:commandButton id="reset" value="Reset" icon="ui-icon-clear"
+								actionListener="#{dentistaBean.resetForm}" ajax="false" />
+								</td>
+					</tr>
+				</table>
+			</h:form>
+		</h:body>
+	</ui:define>
+
+</ui:composition>

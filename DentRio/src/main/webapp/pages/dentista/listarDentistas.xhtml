@@ -1,0 +1,66 @@
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<f:metadata>
+		<f:viewAction action="#{dentistaBean.prepararPedidos}" />
+	</f:metadata>
+
+	<ui:define name="titulo">Lista de Dentistas</ui:define>
+
+	<ui:define name="corpo">
+		<h:body>
+			<h1>Lista de Dentistas</h1>
+			<!-- 		<h:outputText value="Lista de Dentistas" style="font-weight:bold" /> -->
+
+			<h:form>
+			<p:growl id="growl" showDetail="true" life="2000"/>
+				<p:dataTable id="dentistasTable" emptyMessage="Nenhum registro foi encontrado."
+					value="#{dentistaBean.listaDentistas}" var="dentista"
+					style="margin-top: 20px">
+					<p:column headerText="Dentista">
+						<h:outputText value="#{dentista.nomeDentista}" />
+					</p:column>
+					<p:column headerText="Data">
+						<h:outputText value="#{dentista.data}">
+							<f:convertDateTime pattern="dd/MM/yyyy" />
+						</h:outputText>
+					</p:column>
+
+
+					<p:column style="text-align: center; width: 50px;">
+						<!-- 					<span class="ui-separator">  -->
+						<!-- 					<span class="ui-icon ui-icon-grip-dotted-vertical" /></span> -->
+
+
+
+
+
+
+						<p:commandButton icon="ui-icon-trash" title="Excluir"
+							process="@this" update="dentistasTable"
+							action="#{dentistaBean.deletarDentista(dentista.id)}">
+							<p:confirm header="Confirmação"
+								message="Você tem certeza que dezeja excluir?"
+								icon="ui-icon-alert" />
+						</p:commandButton>
+
+						<p:confirmDialog global="true">
+							<p:commandButton value="Sim" type="button"
+								styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+							<p:commandButton value="Não" type="button"
+								styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+						</p:confirmDialog>
+
+
+
+					</p:column>
+				</p:dataTable>
+			</h:form>
+		</h:body>
+	</ui:define>
+
+</ui:composition>
