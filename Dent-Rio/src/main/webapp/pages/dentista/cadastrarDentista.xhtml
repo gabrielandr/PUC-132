@@ -1,0 +1,46 @@
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="corpo">
+		<h:body>
+			<p:panel header="Cadastrar Dentista">
+			<p:messages autoUpdate="true" />
+				<h:form>
+					<!-- 				<p:growl id="growl" showDetail="true" life="2000" /> -->
+					<table>
+
+						<tr>
+							<td><h:outputLabel for="Nome" value="Nome : " /></td>
+							<td><p:inputText id="Nome" label="Nome"
+									value="#{dentistaBean.dentista.nomeDentista}" required="true" >
+									<f:validateLength minimum="5" />
+								</p:inputText> 
+<!-- 								<p:message for="Nome" /> -->
+								</td>
+						</tr>
+
+
+						<tr>
+							<td><h:outputLabel for="multi" value="Data:" /></td>
+							<td><p:calendar id="multi"
+									value="#{dentistaBean.dentista.data}" pages="1" /></td>
+						</tr>
+						<tr>
+							<td><p:commandButton id="addUser" value="Salvar"
+									icon="ui-icon-disk" action="#{dentistaBean.adicionarDentista}"
+									ajax="false" /></td>
+							<td><p:commandButton id="reset" value="Reset"
+									icon="ui-icon-clear" actionListener="#{dentistaBean.resetForm}"
+									ajax="false" /></td>
+						</tr>
+					</table>
+				</h:form>
+			</p:panel>
+		</h:body>
+	</ui:define>
+
+</ui:composition>
