@@ -19,7 +19,7 @@
 		<property name="driverClass" value="com.mysql.jdbc.Driver" />
 		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/dentriodb" />
 		<property name="user" value="root" />
-		<property name="password" value="061284ga" />
+		<property name="password" value="root" />
 		<property name="maxPoolSize" value="10" />
 		<property name="maxStatements" value="0" />
 		<property name="minPoolSize" value="5" />
