@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui">
+<h:form>
+	<p:messages autoUpdate="true" />
+	<p:tabView id="cadastroTabView">
+		<p:tab title="Dados do Paciente">
+			<table>
+				<tr>
+					<td class="labelInput">
+						<h:outputLabel for="Nome" value="Nome : " />
+					</td>
+					<td colspan="3">
+						<p:inputText id="nome" label="Nome" style="width: 99%"
+							value="#{pacienteBean.paciente.nomePessoa}" required="true">
+							<f:validateLength minimum="5" />
+						</p:inputText>
+					</td>
+				</tr>
+				<tr>
+					<td class="labelInput">
+						<h:outputLabel for="paciente" value="Orçado por Dr(a):" />
+					</td>
+					<td>
+						<p:selectOneMenu id="funcionarios" label="Funcionário"
+							value="#{pacienteBean.paciente.funcionario}"
+							converter="omnifaces.SelectItemsConverter">
+							<f:selectItem itemLabel="Selecione" itemValue="" noSelectionOption="true" />
+							<f:selectItems value="#{pacienteBean.listaFuncionarios}"
+								var="funcionario" itemLabel="#{funcionario.nomePessoa}"
+								itemValue="#{funcionario}" />
+						</p:selectOneMenu>
+					</td>
+<!-- 				</tr> -->
+<!-- 				<tr> -->
+					<td class="labelInput">
+						<p:outputLabel for="dataOrcamento" value="Data:" />
+					</td>
+					<td>
+						<p:calendar id="dataOrcamento" label="Data"
+							navigator="true" locale="pt_BR" yearRange="c-100:c+1"
+							value="#{pacienteBean.paciente.dataNascimento}" showOn="button"
+							required="true" />
+					</td>
+				</tr>
+				<tr>
+					<td class="labelInput">
+						<p:outputLabel for="rg" value="RG:" />
+					</td>
+					<td>
+						<p:inputMask id="rg" label="RG" value="#{pacienteBean.paciente.rg}"
+							maxlength="9" mask="999999999" required="true">
+						</p:inputMask>
+					</td>
+					<td class="labelInput">
+						<p:outputLabel for="cpf" value="CPF:" />
+					</td>
+					<td>
+						<p:inputMask id="cpf" label="CPF"
+							value="#{pacienteBean.paciente.cpf}" maxlength="11"
+							mask="99999999999" required="true">
+						</p:inputMask>
+					</td>
+				</tr>
+				<tr>
+					<td class="labelInput">
+						<p:outputLabel for="endereco" value="Endereço:" />
+					</td>
+					<td colspan="3">
+						<p:inputText id="endereco" label="Endereço" style="width: 99%"
+							value="#{pacienteBean.paciente.endereco}">
+						</p:inputText>
+					</td>
+				</tr>
+				<tr>
+					<td class="labelInput">
+						<p:outputLabel for="telefone" value="Telefone:" />
+					</td>
+					<td>
+						<p:inputMask id="telefone" label="Telefone" mask="(99) 9999-9999"
+							value="#{pacienteBean.paciente.telefone}">
+						</p:inputMask>
+					</td>
+					<td class="labelInput">
+						<p:outputLabel for="celular" value="Celular:" />
+					</td>
+					<td>
+						<p:inputMask id="celular" label="Celular"
+							value="#{pacienteBean.paciente.celular}" mask="(99) 99999-9999">
+						</p:inputMask>
+					</td>
+				</tr>
+			</table>
+		</p:tab>
+		<p:tab title="Pagamento">
+			<h:panelGrid columns="2" cellpadding="10">
+				<h:outputText value="After a break of more than 15 years..." />
+			</h:panelGrid>
+		</p:tab>
+		<p:tab title="Pagamento">
+			<h:panelGrid columns="2" cellpadding="10">
+				<h:outputText value="After a break of more than 15 years..." />
+			</h:panelGrid>
+		</p:tab>
+		<p:tab title="Pagamento">
+			<h:panelGrid columns="2" cellpadding="10">
+				<h:outputText value="After a break of more than 15 years..." />
+			</h:panelGrid>
+		</p:tab>
+	</p:tabView>
+	<p:commandButton type="button" value="Voltar" onclick="window.history.back();"
+		icon="ui-icon-arrowreturn-1-w" />
+	<p:commandButton value="Limpar" update="cadastroTabView" process="@this"
+		icon="ui-icon-script">
+		<p:resetInput target="cadastroTabView" />
+	</p:commandButton>
+	<p:commandButton id="addPaciente" value="Salvar" icon="ui-icon-disk"
+		action="#{pacienteBean.salvarPaciente}" ajax="true" />
+</h:form>
+</html>

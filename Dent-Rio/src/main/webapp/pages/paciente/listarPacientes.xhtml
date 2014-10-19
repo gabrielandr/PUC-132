@@ -1,0 +1,70 @@
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+	<f:metadata>
+		<f:viewAction action="#{pacienteBean.prepararPacientes}" />
+	</f:metadata>
+
+	<ui:define name="titulo">Lista de Pacientes</ui:define>
+
+	<ui:define name="corpo">
+		<h:body>
+			<h:form styleClass="formulatio">
+				<p:panel id="pacientesPanel" header="Lista de Pacientes" style="text-align: center">
+					<f:facet name="header">
+						<div style="float: left;">
+							<p:button value="Novo" href="/pages/paciente/formPaciente.xhtml" />
+						</div>
+						<div style="float: left; width: 90%; text-align: center;">
+							<h3>Lista de Pacientes</h3>
+						</div>
+					</f:facet>
+					<p:dataTable id="pacientesTable" emptyMessage="Nenhum registro foi encontrado."
+						value="#{pacienteBean.listaPacientes}" var="paciente">
+
+						<p:column headerText="Paciente">
+							<h:outputText value="#{paciente.nomePessoa}" />
+						</p:column>
+						<p:column headerText="Dr(a)">
+							<h:outputText value="#{paciente.funcionario.nomePessoa}">
+							</h:outputText>
+						</p:column>
+
+						<p:column style="text-align: center; width: 80px;">
+
+							<p:commandButton icon="ui-icon-pencil" title="Editar" style="float:left;"
+								process="@this" action="#{pacienteBean.editarPaciente(paciente.id)}">
+							</p:commandButton>
+
+							<p:commandButton icon="ui-icon-trash" style="float:right;" title="Excluir"
+								process="@this" update="pacientesTable growl"
+								action="#{pacienteBean.deletarPaciente(paciente.id)}">
+								<p:confirm header="Confirmação" message="Você tem certeza que dezeja excluir?"
+									icon="ui-icon-alert" />
+							</p:commandButton>
+
+							<p:confirmDialog global="true">
+								<p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes"
+									icon="ui-icon-check" />
+								<p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no"
+									icon="ui-icon-close" />
+							</p:confirmDialog>
+
+							<p:growl id="growl" showDetail="true" globalOnly="true" life="2000" />
+
+
+						</p:column>
+					</p:dataTable>
+				</p:panel>
+
+				<h:commandLink>
+					<h:graphicImage name="/imagens/play.png" />
+					<p:dataExporter type="pdf" target="pacientesTable" fileName="pacientes"
+						pageOnly="true" />
+				</h:commandLink>
+			</h:form>
+		</h:body>
+	</ui:define>
+
+</ui:composition>
