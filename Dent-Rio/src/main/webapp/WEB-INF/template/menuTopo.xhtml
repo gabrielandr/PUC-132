@@ -1,71 +1,42 @@
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">
-
+	xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui">
 <div class="navbar">
 	<div class="navbar-inner">
-		<a class="btn btn-navbar" data-toggle="collapse"
-			data-target=".nav-collapse"> Main Menu </a>
+		<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+			Main Menu </a>
 		<div class="nav-collapse">
-			<ul class="nav">
-				<li class="active"><h:link outcome="/home">Home</h:link></li>
-				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#">Dentista</a>
+			<ul class="nav" style="float: left;">
+				<li class="active">
+					<h:link outcome="/home">Home</h:link>
+				</li>
+				<li>
+					<h:link outcome="/pages/paciente/listarPacientes">Ficha</h:link>
+				</li>
+				<li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="">Outros</a>
 					<ul class="dropdown-menu">
-						<li><h:link outcome="/pages/dentista/listarDentistas">Listar</h:link>
+						<li>
+							<h:link outcome="/pages/funcionario/listarFuncionarios">Funcionário</h:link>
 						</li>
-						<li><h:link outcome="/pages/dentista/cadastrarDentista">Cadastrar</h:link>
+						<li>
+							<h:link outcome="/pages/despesa/listarDespesas">Despesas</h:link>
 						</li>
-						
-					</ul></li>
-				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown"
-					href="http://byrushan.com/projects/medical-pro/index.html">
-						Features </a>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="">Relatórios</a>
 					<ul class="dropdown-menu">
-						<li><a
-							href="http://byrushan.com/projects/medical-pro/columns.html">Columns</a></li>
-						<li><a
-							href="http://byrushan.com/projects/medical-pro/typography.html">Typography</a></li>
-						<li><a
-							href="http://byrushan.com/projects/medical-pro/components.html">Components</a></li>
-						<li><a
-							href="http://byrushan.com/projects/medical-pro/icons.html">Icons</a></li>
-					</ul></li>
-				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown"
-					href="http://byrushan.com/projects/medical-pro/index.html">
-						Photo Gallery </a>
-					<ul class="dropdown-menu">
-						<li><a
-							href="http://byrushan.com/projects/medical-pro/photo-gallery-3.html">3-Column</a></li>
-						<li><a
-							href="http://byrushan.com/projects/medical-pro/photo-gallery-4.html">4-Column</a></li>
-						<li><a
-							href="http://byrushan.com/projects/medical-pro/photo-gallery-6.html">6-Column</a></li>
-					</ul></li>
-				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#menu1"> Our Blog </a>
-					<ul class="dropdown-menu">
-						<li><a
-							href="http://byrushan.com/projects/medical-pro/blog.html">Modern
-								Style</a></li>
-						<li><a
-							href="http://byrushan.com/projects/medical-pro/blog-detail.html">Modern
-								Full Post</a></li>
-						<li><a
-							href="http://byrushan.com/projects/medical-pro/blog-2.html">Classic
-								Style</a></li>
-						<li><a
-							href="http://byrushan.com/projects/medical-pro/blog-2-detail.html">Classic
-								Full Post</a></li>
-					</ul></li>
-				<li><a
-					href="http://byrushan.com/projects/medical-pro/contact-us.html">Contact
-						Us</a></li>
+						<li>
+							<h:link outcome="/pages/funcionario/listarFuncionarios">Funcionário</h:link>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="http://byrushan.com/projects/medical-pro/contact-us.html">Contato</a>
+				</li>
 			</ul>
 		</div>
 		<!--/.nav-collapse -->

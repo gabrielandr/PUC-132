@@ -48,7 +48,7 @@ jQuery.fn.wowSlider = function(I) {
 		visibility : "hidden",
 		"font-size" : 0,
 		"line-height" : 0
-	}).append(b.find("li:first img:first").clone().css({
+	}).append(b.find("li:first imagens:first").clone().css({
 		width : "100%"
 	})).prependTo(b);
 	Z.css({
@@ -112,7 +112,7 @@ jQuery.fn.wowSlider = function(I) {
 	}
 	var h = [];
 	k.each(function(c) {
-		var au = S(">img:first,>a:first,>div:first", this).get(0);
+		var au = S(">imagens:first,>a:first,>div:first", this).get(0);
 		var av = S("<div></div>");
 		for (var f = 0; f < this.childNodes.length;) {
 			if (this.childNodes[f] != au) {
@@ -131,7 +131,7 @@ jQuery.fn.wowSlider = function(I) {
 		S(this).css({
 			"font-size" : 0
 		});
-		h[h.length] = S(">a>img", this).get(0) || S(">*", this).get(0)
+		h[h.length] = S(">a>imagens", this).get(0) || S(">*", this).get(0)
 	});
 	h = S(h);
 	h.css("visibility", "visible");
@@ -325,7 +325,7 @@ jQuery.fn.wowSlider = function(I) {
 						opacity : 0,
 						transition : "200ms ease"
 					});
-					Z.show().find("img").css({
+					Z.show().find("imagens").css({
 						visibility : "visible"
 					});
 					Z.css("left", -L + "00%")
@@ -702,7 +702,7 @@ jQuery.fn.wowSlider = function(I) {
 		if (q.length) {
 			var aG = q.find(">div");
 			var aD = S("a", q);
-			var av = aD.find("IMG");
+			var av = aD.find("imagens");
 			if (av.length) {
 				var aw = S('<div class="ws_bulframe"/>').appendTo(aG);
 				var f = S("<div/>").css({
@@ -917,7 +917,7 @@ jQuery.fn.wowSlider = function(I) {
 	};
 	ac[0] = ac.slide;
 	function J(f) {
-		var av = S("img", f).attr("title");
+		var av = S("imagens", f).attr("title");
 		var au = S(f).data("descr");
 		if (!av.replace(/\s+/g, "")) {
 			av = ""
@@ -1346,7 +1346,7 @@ function wowsliderPreloader(m, d) {
 	}
 	var r = f(" .ws_images ul", m);
 	var g = r.find("li").length;
-	var a = r.find("img").get(0).src;
+	var a = r.find("resources/imagens").get(0).src;
 	for (var o = 0; o < j.length; o++) {
 		if (j[o]) {
 			if (o >= g) {
@@ -1357,12 +1357,12 @@ function wowsliderPreloader(m, d) {
 										+ '"'
 										+ (j[o].target ? ' target="'
 												+ j[o].target + '"' : "") + ">"
-										: "") + '<img src="' + a + '"/>'
+										: "") + '<imagens src="' + a + '"/>'
 								+ (j[o].href ? "</a>" : "") + "</li>")
 						.appendTo(r);
-				f("img", c).attr("title", j[o].title);
+				f("imagens", c).attr("title", j[o].title);
 				c.data("descr", j[o].descr || "");
-				j[o].image = f("img", c).get(0);
+				j[o].image = f("imagens", c).get(0);
 				j[o].noimage = 1;
 				if (/^\./.test(j[o].src)) {
 					j[o].src = a.substr(0, a.lastIndexOf("/"))
@@ -1375,8 +1375,8 @@ function wowsliderPreloader(m, d) {
 		width : j.length + "00%"
 	});
 	var k = f(" .ws_bullets>div", m);
-	if (f("img", k).length) {
-		var a = k.find("img").get(0).src;
+	if (f("imagens", k).length) {
+		var a = k.find("imagens").get(0).src;
 		k.find(">a").each(
 				function(u, t) {
 					if (j[u]) {
@@ -1389,10 +1389,10 @@ function wowsliderPreloader(m, d) {
 							j[u].thumb = a.substr(0, a.lastIndexOf("/"))
 									+ j[u].thumb.substr(1)
 						}
-						if (!f("img", t).length) {
+						if (!f("imagens", t).length) {
 							j[u].nottip = 1;
 							j[u].ttip = f(
-									'<img class="loading" src="' + q + '"/>')
+									'<imagens class="loading" src="' + q + '"/>')
 									.appendTo(t).get(0)
 						}
 					}

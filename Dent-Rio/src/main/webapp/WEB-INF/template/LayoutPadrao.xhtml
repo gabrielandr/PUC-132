@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui">
 
 <h:head>
 
@@ -13,27 +11,14 @@
 	<link type="text/css" rel="stylesheet"
 		href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow|Yanone+Kaffeesatz:400,300,700" />
 	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+	<!-- 	<h:outputStylesheet library="css" name="bootstrap-responsive.min.css" /> -->
 	<h:outputStylesheet library="css" name="bootstrap-overrides.css" />
 	<h:outputStylesheet library="css" name="style.css" />
-
+	<h:outputScript library="js" name="jquery.maskMoney.js"></h:outputScript>
 
 </h:head>
 
 <h:body>
-
-	<!-- 	<p:ajaxStatus styleClass="ajax-status"> -->
-	<!-- 		<f:facet name="start"> -->
-	<!-- 			<h:graphicImage library="imagens" name="carregando.gif" /> -->
-	<!-- 		</f:facet> -->
-	<!-- 		<f:facet name="complete"> -->
-	<!-- 			<h:outputText value="" /> -->
-	<!-- 		</f:facet> -->
-	<!-- 	</p:ajaxStatus> -->
-
-	<!-- 	<header> -->
-	<!-- 		<div style="clear: both"></div> -->
-	<!-- 	</header> -->
-
 
 	<header>
 		<div class="container">
@@ -49,8 +34,8 @@
 				<!-- Social menu -->
 				<div class="span6" id="social">
 					<ul class="social">
-						<li class="twitter"><a target="_top" href="www.twiter.com"></a></li>
-						<li class="facebook"><a target="_top" href="www.facebook.com"></a></li>
+						<li class="twitter"><a target="_blank" href="#"></a></li>
+						<li class="facebook"><a target="_blank" href="#"></a></li>
 					</ul>
 				</div>
 				<!-- End Social Menu -->
@@ -60,23 +45,18 @@
 		</div>
 		<!--/.container -->
 	</header>
+<!-- End Header -->
 
 	<section id="top">
 		<div class="container">
 
 			<ui:include src="/WEB-INF/template/menuTopo.xhtml" />
 
-			<!--/.navbar -->
+			<!-- Aqui abaixo vai o conteudo de cada pagina criada xhtml -->
+			<ui:insert name="corpo" />
+			<!-- ##### -->
 
-
-			<div id="conteudo">
-
-
-				<!-- Aqui abaixo vai o conteudo de cada pagina criada xhtml -->
-				<ui:insert name="corpo" />
-				<!-- ##### -->
-
-			</div>
+			<!-- 			</div> -->
 
 		</div>
 	</section>
@@ -86,8 +66,6 @@
 		DentRio - - <a href="http://www.puc-rio.br/index.html" target="_blank">PUC
 			132</a>
 	</footer>
-	<h:outputScript library="js" name="wowslider.js" />
-	<h:outputScript library="js" name="script.js" />
 
 </h:body>
 

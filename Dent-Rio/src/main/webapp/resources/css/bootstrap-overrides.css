@@ -6,10 +6,9 @@ h4 { font-size: 17px; }
 h5 { font-size: 15px; }
 h6 { font-size: 13px; }
 
-li { line-height: 28px; }
+li { line-height: 1.1; }
 a { text-decoration: none !important; }
-/* p { color: #666666; line-height: 180%; margin: 10px 0; } */
-p {line-height: 180%; margin: 10px 0; }
+p { color: #666666; line-height: 180%; margin: 10px 0; }
 .label, .badge { font-weight: normal; }
 
 header .span1,
@@ -61,7 +60,7 @@ input[type="search"],
 input[type="tel"],
 input[type="color"],
 .uneditable-input
-{ height: 13px; color: #a2a1a1; font-family: inherit; font-style: italic; padding: 5px 5px 3px; }
+{ color: #a2a1a1; font-family: inherit; font-style: italic; padding: 5px 5px 3px; }
 
 textarea:focus,
 input[type="text"]:focus,
@@ -193,14 +192,14 @@ input[type="color"],
 }
 
 /* Main Menu */
-.navbar { margin-bottom: 0; float: left;}
+.navbar { margin-bottom: 0; }
 .navbar .nav { float: right; margin-right: 0; }
 .navbar-inner { background: transparent; filter:0; border: none; padding: 0; }
 .navbar .nav > li {background: url(../resources/imagens/menu-li.png) no-repeat; min-width: 135px; text-align: center; }
 .navbar .nav > li.first { background: url(../resources/imagens/menu-li-first.png) no-repeat; }
 .dropdown ul li { background: url(../resources/imagens/menu-ul-ul-li.png) repeat-x !important; }
 .dropdown ul li a { height: 18px; line-height: 18px; font-size: 13px; margin-bottom: 0; }
-.navbar .nav > li > a { color: #007C69; text-transform: uppercase; font-size: 14px; padding: 0 0 0 15px; vertical-align: middle; height: 40px; line-height: 40px; font-family: PT sans narrow;}
+.navbar .nav > li > a { color: #007C69; font-size: 14px; padding: 0 0 0 15px; vertical-align: middle; height: 40px; line-height: 40px; }
 .navbar .nav .active > a, .navbar .nav .active > a:hover, .navbar .nav > li > a:hover { background: none; color:#D42915; }
 ul.dropdown-menu {border: 3px solid #3EB5A3; margin-top: 0; left:19px; text-align: left; padding-top: 0; padding-bottom: 0; }
 .dropdown-menu a, .category-widget .nav > li > a{ padding: 6px 15px; }
@@ -274,10 +273,9 @@ form { margin-bottom: 0; }
 /* For Responsive */
 @media (min-width: 1200px) {
    .container, .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
-/*       max-width: 960px; */
+      max-width: 1450px;
       width: 100%;
       margin: 0 auto;
-      min-height: 500px;
    }
 }
 
